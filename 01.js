@@ -9,10 +9,19 @@ const options = {
   fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
    .then(response => response.json())
    // api 가져온 값에서 필요한 4가지 요소 골라서 저장 (화살표 함수로)
+   // api 값들 중 필요한 내용 들어있는 results 값들만 따로 저장
    .then((response) => {
     let results = response["results"];
-    console.log(results);
-    
+    console.log(results[0]["title"]);
+    console.log(typeof results[0]);
+    // 다시 results 값들 중 필요한 4가지 요소들(title, overview, poster_path, vote_average) 따로 저장
+    // forEach, 화살표 함수 사용
+    let arr = new Array();
+    results.forEach((elements) => {
+        arr = elements["title"];
+        // console.log(elements["title"]);
+     });
+     console.log(arr);
 })
    .catch(err => console.error(err));
   
