@@ -6,26 +6,10 @@ const options = {
     }
   };
 
+  //영화 정보들 저장하여 카드로 만들 구역 불러옴
   const movies = document.getElementById("movies");
   console.log(movies);
 
-//   //영화 정보 4가지 속성 만들기
-//   let title = document.createElement('h2');
-//   let overview = document.createElement('p');
-//   let img = document.createElement('img');
-//   let vote_average = document.createElement('p');
-
-//   //영화 정보 공간 안에 하위 요소로 추가
-//   movies.appendChild(title);
-//   movies.appendChild(overview);
-//   movies.appendChild(img);
-//   movies.appendChild(vote_average);
-
-//   //내용 추가
-//   title.textContent = 'title';
-//   overview.textContent = 'overview';
-//   img.textContent = 'img';
-//   vote_average.textContent = 'vote_average';
 
   fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
    .then(response => response.json())
@@ -34,16 +18,32 @@ const options = {
    .then((response) => {
     let results = response["results"];
     // 다시 results 값들 중 필요한 4가지 요소들(title, overview, poster_path, vote_average) 따로 저장
-    // for문으로 각 배열에 따로 저장
+    // for문으로 반복문 돌면서 각각 따로 저장, 출력
     for(let i=0;i<results.length;i++){
-    let title = results[i]["title"];
-    let overview = results[i]["overview"];
-    let poster_path = results[i]["poster_path"];
-    let vote_average = results[i]["vote_average"];
+    let tt = results[i]["title"];
+    let ov = results[i]["overview"];
+    let pp = results[i]["poster_path"];
+    let va = results[i]["vote_average"];
+
+    //영화 정보 4가지 속성 만들기
+   let title = document.createElement('h2');
+   let overview = document.createElement('p');
+   let img = document.createElement('img');
+   let vote_average = document.createElement('p');
+
+    //영화 정보 만들었던 movies 구역 안에 하위 요소로 추가
+   movies.appendChild(title);
+   movies.appendChild(overview);
+   movies.appendChild(img);
+   movies.appendChild(vote_average);
+
+   //내용 추가
+   title.textContent = tt;
+   overview.textContent = ov;
+   img.textContent = pp;
+   vote_average.textContent = va;
 
 
-
-    title.innerHTML = title;
     }
 })
    .catch(err => console.error(err));
