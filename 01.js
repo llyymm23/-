@@ -25,22 +25,22 @@ const options = {
     let pp = results[i]["poster_path"];
     let va = results[i]["vote_average"];
 
-    //영화 정보 4가지 속성 만들기
+    //영화 정보 적을 부분 속성 만들기
    let title = document.createElement('h2');
    let overview = document.createElement('p');
-   let img = document.createElement('img');
+   let image = document.createElement('img');
    let vote_average = document.createElement('p');
 
-    //영화 정보 만들었던 movies 구역 안에 하위 요소로 추가
+    //영화 정보들을 만들었던 movies 구역 안에 하위 요소로 추가
    movies.appendChild(title);
    movies.appendChild(overview);
-   movies.appendChild(img);
+   movies.appendChild(image);
    movies.appendChild(vote_average);
 
    //내용 추가
    title.textContent = tt;
    overview.textContent = ov;
-   img.textContent = pp;
+   image.src = `https://image.tmdb.org/t/p/w500${pp}`;
    vote_average.textContent = va;
 
 
