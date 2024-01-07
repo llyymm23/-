@@ -9,17 +9,23 @@ const options = {
   const movies = document.getElementById("movies");
   console.log(movies);
 
-  //영화 정보 4가지 속성 만들기
-  let title = document.createElement('h2');
-  let overview = document.createElement('p');
-  let img = document.createElement('img');
-  let vote_average = document.createElement('p');
+//   //영화 정보 4가지 속성 만들기
+//   let title = document.createElement('h2');
+//   let overview = document.createElement('p');
+//   let img = document.createElement('img');
+//   let vote_average = document.createElement('p');
 
-  //영화 정보 공간 안에 하위 요소로 추가
-  movies.appendChild(title);
-  movies.appendChild(overview);
-  movies.appendChild(img);
-  movies.appendChild(vote_average);
+//   //영화 정보 공간 안에 하위 요소로 추가
+//   movies.appendChild(title);
+//   movies.appendChild(overview);
+//   movies.appendChild(img);
+//   movies.appendChild(vote_average);
+
+//   //내용 추가
+//   title.textContent = 'title';
+//   overview.textContent = 'overview';
+//   img.textContent = 'img';
+//   vote_average.textContent = 'vote_average';
 
   fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
    .then(response => response.json())
@@ -34,6 +40,10 @@ const options = {
     let overview = results[i]["overview"];
     let poster_path = results[i]["poster_path"];
     let vote_average = results[i]["vote_average"];
+
+
+
+    title.innerHTML = title;
     }
 })
    .catch(err => console.error(err));
