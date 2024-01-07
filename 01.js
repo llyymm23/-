@@ -12,38 +12,13 @@ const options = {
    // api 값들 중 필요한 내용 들어있는 results 값들만 따로 저장
    .then((response) => {
     let results = response["results"];
-    console.log(results[0]["title"]);
-    console.log(typeof results[0]);
     // 다시 results 값들 중 필요한 4가지 요소들(title, overview, poster_path, vote_average) 따로 저장
-    // forEach, 화살표 함수 사용
-    let arr = new Array();
-    results.forEach((elements) => {
-        arr = elements["title"];
-        // console.log(elements["title"]);
-     });
-     console.log(arr);
+    // for문으로 각 배열에 따로 저장
+    for(let i=0;i<results.length;i++){
+    let title = results[i]["title"];
+    let overview = results[i]["overview"];
+    let poster_path = results[i]["poster_path"];
+    let vote_average = results[i]["vote_average"];
+    }
 })
    .catch(err => console.error(err));
-  
-
-//   getTitle();
-
-    //   {
-    //     "adult": false,
-    //     "backdrop_path": "/zoVeIgKzGJzpdG6Gwnr7iOYfIMU.jpg",
-    //     "genre_ids": [
-    //       18,
-    //       10749
-    //     ],
-    //     "id": 11216,
-    //     "original_language": "it",
-    //     "original_title": "Nuovo Cinema Paradiso",
-    //     "overview": "A filmmaker recalls his childhood, when he fell in love with the movies at his village's theater and formed a deep friendship with the theater's projectionist.",
-    //     "popularity": 30.507,
-    //     "poster_path": "/8SRUfRUi6x4O68n0VCbDNRa6iGL.jpg",
-    //     "release_date": "1988-11-17",
-    //     "title": "Cinema Paradiso",
-    //     "video": false,
-    //     "vote_average": 8.45,
-    //     "vote_count": 4068
-    //   }
