@@ -1,7 +1,15 @@
+header {
+    background-color: green;
+}
+
 body {
     background-color: yellow;
 }
 
-header {
-    background-color: green;
+.movies {
+    background-color: red;
+}
+
+#card {
+    background-color: white;
 }
