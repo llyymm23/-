@@ -1,16 +1,25 @@
 header {
     background-color: greenyellow;
-    margin: auto auto auto auto;
-    width: max-content;
-    height: max-content;
+}
+
+body {
+    min-height: 100vh;
 }
 
 #search {
     background-color: yellow;
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .movies {
-    background-color: red;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
 }
 
 #card {

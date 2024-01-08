@@ -45,27 +45,27 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
             overview.textContent = ov;
             image.src = `https://image.tmdb.org/t/p/w500${pp}`;
             vote_average.textContent = `영화 평점 : ${va}`;
-        
+
             //이미지 클릭시 아이디값 나오는 창 만들기
             //각 아이디 값 저장
             let id = results[i]["id"];
             //이미지클릭하면 영화 id값 보여주는 alert창 만들기
             //화살표 함수 이용
             const imgclick = () => {
-                alert("영화 id : "+id);
+                alert("영화 id : " + id);
 
             }
             //image에 addEventListener 사용해서 클릭하면 imgclick 행동 일어남
-            image.addEventListener('click',imgclick);
+            image.addEventListener('click', imgclick);
 
 
-            //검색한 문자값 포함한 영화만 화면에 나오게 하기
-            //검색한 문자값 input으로 받아와서 저장
-            const input = document.getElementById("input").value;
-            //입력받은 문자값 모두 소문자로 변환
-            const l_input = input.toLowerCase();
+            btn.addEventListener("click", function () {
+                card.style.display = "none"
+                if (tt.toLowerCase().includes(l_input)) {
+                    card.style.display = "block"
+                }
+            })
 
-        
             // // //입력한 문자값대로 영화 검색하는 함수
             //  function search (element) {
             //      //검색한 영화만 보여주기 위해 먼저 영화 카드들 모두 숨김
@@ -78,28 +78,35 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
             //  }
 
 
-             // //입력한 문자값대로 영화 검색하는 함수
-             function search (element) {
-                if (element === tt.toLowerCase()) {
-                    return console.log(element);
-                }
-            }
-
-            search(l_input);
+            //  // //입력한 문자값대로 영화 검색하는 함수
+            //  function search (element) {
+            //     if (element === tt.toLowerCase()) {
+            //         return console.log(element);
+            //     }
+            // }
 
 
-            
 
-        
+
 
             //  form.addEventListener('submit', function(e) {
             //      console.log('제출');
             //  })
-          
+
 
         }
-        
+
     })
     .catch(err => console.error(err));
 
-   
+//검색한 문자값 포함한 영화만 화면에 나오게 하기
+//검색한 문자값 input으로 받아와서 저장
+document.getElementById("btn").onclick = function () {
+    const input = document.getElementById("input").value;
+    //입력받은 문자값 모두 소문자로 변환
+    const l_input = input.toLowerCase();
+    console.log(l_input);
+}
+
+
+
