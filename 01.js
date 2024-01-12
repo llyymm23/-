@@ -30,6 +30,11 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
             let image = document.createElement('img');
             let vote_average = document.createElement('p');
 
+            //CSS에서 사용하기 위해 각 요소 id 설정함
+            title.id = "title"
+            overview.id = "overview"
+            image.id = "poster"
+
             // movie 구역 안에 새로운 card라는 구역 만들어 영화 정보 저장
             const card = document.createElement('div');
             movie.appendChild(card);
@@ -43,8 +48,8 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
 
             // //영화 정보들을 만들었던 card 구역 안에 하위 요소로 추가
             card.appendChild(title);
-            card.appendChild(overview);
             card.appendChild(image);
+            card.appendChild(overview);
             card.appendChild(vote_average);
 
             //이미지 클릭시 아이디값 나오는 창 만들기
@@ -57,6 +62,7 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
 
             //image에 addEventListener 사용해서 클릭하면 imgclick 행동 일어남
             image.addEventListener('click', imgclick);
+
 
 
             //검색한 문자값 포함한 영화만 화면에 나오게 하는 함수
@@ -85,7 +91,12 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
                 search();
             })
 
+           // console.log(movie);
+
         }
 
     })
     .catch(err => console.error(err));
+
+
+    console.log(movie);
